@@ -3,3 +3,8 @@
 
 Written by: **Don Vida**<br>
 [GitHub](https://github.com/UnlikelyHero) • [LinkedIn](https://www.linkedin.com/in/donald-vida/)
+#
+## Installation
+1) Navigate to the directory of the repository.
+2) use `npm install` to install the depedencies for the project.
+3) use `npm start` to build the files, and view the app in the browser.
