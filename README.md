@@ -1,1 +1,1 @@
-# student-profiles
+# Student Profiles
