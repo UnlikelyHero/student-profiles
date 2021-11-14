@@ -19,7 +19,8 @@
     ],
     "rules": {
         "react/function-component-definition": [true, {
-            "namedComponents": "arrow-function"
+            "namedComponents": "arrow-function",
+            "unnamedComponents": "arrow-function"
         }]
     }
 }

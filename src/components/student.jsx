@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const Student = ({ data }) => {
   const [showGrades, toggleGrades] = useState(false);
+  const [tags, updateTags] = useState([]);
 
   const getAverage = () => {
     const totalGrades = data.grades.reduce(((sum, grade) => sum + parseInt(grade)), 0)

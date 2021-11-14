@@ -3,13 +3,15 @@ import ReactDom from 'react-dom';
 import axios from 'axios';
 import './styles.css';
 
-import Student from './components/student.jsx';
+import Student from './components/student';
 
 const url = 'https://api.hatchways.io/assessment/students';
 
 const App = () => {
   const [students, updateStudents] = useState([]);
-  const [filter, setFilter] = useState('');
+  const [tags, updateTags] = useState({})
+  const [filterName, setNameFilter] = useState('');
+  const [filterTag, setTagFilter] = useState('');
 
   useEffect(() => {
     axios.get(url)
@@ -25,7 +27,7 @@ const App = () => {
   }
 
   const filterList = () => {
-    if (!filter) {
+    if (!filterName) {
       return students.slice();
     }
 
@@ -37,7 +39,6 @@ const App = () => {
 
   const listStudents = () => {
     const studentList = filterList();
-    console.log(studentList)
     if (!studentList.length) {
       return (
         <h1>No Students Found...</h1>
@@ -45,19 +46,26 @@ const App = () => {
     }
 
     return studentList.map((student, i) => (
-      <Student key={i} data={student}/>
+      <Student key={student.email} data={student} />
     ));
   }
-
 
   return (
     < >
       <div className="searchBar">
         <input
-          id="search"
+          id="searchName"
+          className="search"
           type="search"
           placeholder="Search by name"
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(e) => setNameFilter(e.target.value)}
+        />
+        <input
+          id="searchTag"
+          className="search"
+          type="search"
+          placeholder="Search by tag"
+          onChange={(e) => setTagFilter(e.target.value)}
         />
       </div>
       <div className="list">
@@ -65,8 +73,6 @@ const App = () => {
       </div>
     </>
   )
-
 }
-
 
 ReactDom.render(<App />, document.getElementById('app'));

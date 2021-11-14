@@ -26,14 +26,15 @@ body {
 
 }
 
-#search {
+.search {
   width: 100%;
-  font-size: 20pt;
+  padding: 5px;
+  font-size: 15pt;
   border: 0 none;
   border-bottom: 1px solid;
 }
 
-#search:focus-visible {
+.search:focus-visible {
   outline: none;
 }
 
@@ -50,12 +51,8 @@ body {
   border-bottom: 1px dotted grey;
 }
 
-.pic {
-  display: flex;
-  align-items: center;
-}
-
 .pic img {
+  margin-top: 40px;
   width: 100px;
   border: 1px dotted grey;
   border-radius: 50px;
@@ -72,6 +69,7 @@ body {
 }
 
 .grades, .summary {
+  font-size: large;
   list-style-type: none;
   padding-left: 15px;
 }
