@@ -14,8 +14,8 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR,
   },
-  mode: 'development',
   devtool: 'eval-source-map',
+  mode: 'development',
   module: {
     rules: [
       {

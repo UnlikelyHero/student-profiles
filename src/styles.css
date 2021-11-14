@@ -1,5 +1,5 @@
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Raleway', Helvetica, sans-serif;
 }
 
 body {
@@ -14,6 +14,8 @@ body {
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
   width: 80%;
   min-width: 360px;
   height: 80%;
@@ -21,4 +23,62 @@ body {
   filter: drop-shadow(1px 1px 2px grey);
   background-color: white;
   border-radius: 5px;
+
+}
+
+#search {
+  width: 100%;
+  font-size: 20pt;
+  border: 0 none;
+  border-bottom: 1px solid;
+}
+
+#search:focus-visible {
+  outline: none;
+}
+
+.list {
+  overflow: auto;
+}
+
+.student {
+  display: flex;
+  flex-direction: row;
+}
+
+.student:not(:last-child) {
+  border-bottom: 1px dotted grey;
+}
+
+.pic {
+  display: flex;
+  align-items: center;
+}
+
+.pic img {
+  width: 100px;
+  border: 1px dotted grey;
+  border-radius: 50px;
+}
+
+.profile {
+  flex-grow: 2;
+  padding-left: 20px;
+}
+
+.profile h1 {
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.grades, .summary {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.toggle {
+  font-size: 60px;
+  color: grey;
+  background-color: inherit;
+  border: 0;
 }
