@@ -27,14 +27,40 @@ const App = () => {
     )
   }
 
-  const filterList = () => {
+  const nameFound = (studentName) => {
     if (!filterName) {
+      return true;
+    }
+
+    return studentName.indexOf(filterName) !== -1
+  }
+
+  const tagFound = (studentName) => {
+    if (!filterTag) {
+      return true;
+    }
+    let tagDetected = false;
+
+    if (tags[studentName]) {
+      for (let i = 0; i < tags[studentName].length; i++) {
+        if (tags[studentName][i].indexOf(filterTag) !== -1) {
+          tagDetected = true;
+          break;
+        }
+      }
+    }
+
+    return tagDetected;
+  }
+
+  const filterList = () => {
+    if (!filterName && !filterTag) {
       return students.slice();
     }
 
     return students.filter((student) => {
       const studentName = student.firstName + ' ' + student.lastName
-      return studentName.indexOf(filterName) !== -1;
+      return nameFound(studentName) && tagFound(studentName);
     })
   }
 
