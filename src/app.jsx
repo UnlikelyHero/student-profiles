@@ -3,7 +3,8 @@ import ReactDom from 'react-dom';
 import axios from 'axios';
 import './styles.css';
 
-import Student from './components/student';
+import Student from './components/student.jsx';
+import TagContext from './tagContext.jsx';
 
 const url = 'https://api.hatchways.io/assessment/students';
 
@@ -33,7 +34,7 @@ const App = () => {
 
     return students.filter((student) => {
       const studentName = student.firstName + ' ' + student.lastName
-      return studentName.indexOf(filter) !== -1;
+      return studentName.indexOf(filterName) !== -1;
     })
   }
 
@@ -51,7 +52,7 @@ const App = () => {
   }
 
   return (
-    < >
+    <TagContext.Provider value={{ tags, updateTags }}>
       <div className="searchBar">
         <input
           id="searchName"
@@ -71,7 +72,7 @@ const App = () => {
       <div className="list">
         {listStudents()}
       </div>
-    </>
+    </TagContext.Provider>
   )
 }
 

@@ -34,7 +34,16 @@ body {
   border-bottom: 1px solid;
 }
 
-.search:focus-visible {
+.addTag {
+  width: 100px;
+  padding: 5px 0;
+  font-size: 12pt;
+  border: 0 none;
+  border-bottom: 1px solid;
+  margin-bottom: 5px;
+}
+
+.search:focus-visible, .addTag:focus-visible {
   outline: none;
 }
 
@@ -51,7 +60,7 @@ body {
   border-bottom: 1px dotted grey;
 }
 
-.pic img {
+.pic {
   margin-top: 40px;
   width: 100px;
   border: 1px dotted grey;
@@ -72,6 +81,22 @@ body {
   font-size: large;
   list-style-type: none;
   padding-left: 15px;
+}
+
+.tagsComponent {
+  margin-left: 15px;
+}
+
+.tagList {
+  display: flex;
+}
+
+.tag {
+  padding: 5px 8px;
+  margin: 0 10px 10px 0;
+  background-color: lightgrey;
+  border-radius: 5px;
+  filter: drop-shadow(1px 1px 2px grey)
 }
 
 .toggle {
