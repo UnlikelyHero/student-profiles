@@ -27,31 +27,11 @@ const App = () => {
     )
   }
 
-  const nameFound = (studentName) => {
-    if (!filterName) {
-      return true;
-    }
+  // if filterName isn't empty, we'll confirm the filterName string can be found in the student's name
+  const nameFound = (studentName) => !filterName || studentName.indexOf(filterName) !== -1;
 
-    return studentName.indexOf(filterName) !== -1
-  }
-
-  const tagFound = (studentName) => {
-    if (!filterTag) {
-      return true;
-    }
-    let tagDetected = false;
-
-    if (tags[studentName]) {
-      for (let i = 0; i < tags[studentName].length; i++) {
-        if (tags[studentName][i].indexOf(filterTag) !== -1) {
-          tagDetected = true;
-          break;
-        }
-      }
-    }
-
-    return tagDetected;
-  }
+  // if filterTag isn't empty, we'll confirm the filterTag string can be found in one of the student's tags
+  const tagFound = (studentName) => !filterTag || !!tags[studentName]?.find(tag => tag.indexOf(filterTag) !== -1);
 
   const filterList = () => {
     if (!filterName && !filterTag) {
